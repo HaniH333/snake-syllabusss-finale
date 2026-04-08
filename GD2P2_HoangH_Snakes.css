@@ -1,0 +1,413 @@
+/* ============================================================
+   ROOT TOKENS
+============================================================ */
+:root {
+  --cream: #F2EDDA;
+  --green-dark: #1B3A28;
+  --green-mid: #2D5A3D;
+  --green-light: #3D7A52;
+  --text-dark: #1B3A28;
+  --text-cream: #F2EDDA;
+  --border: 1.5px solid #1B3A28;
+  --font-title: 'Playfair Display', serif;
+  --font-mono: 'Space Mono', monospace;
+  --font-body: 'Inter', sans-serif;
+  --radius-pill: 999px;
+  --radius-sm: 4px;
+}
+
+/* ============================================================
+   RESET
+============================================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { background: var(--cream); color: var(--text-dark); font-family: var(--font-body); min-height: 100vh; display: flex; flex-direction: column; }
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+
+/* ============================================================
+   HEADER
+============================================================ */
+.site-header { display: flex; align-items: stretch; min-height: 64px; position: sticky; top: 0; z-index: 100; background: var(--cream); border-bottom: 2px solid var(--green-dark); }
+.header-left { display: flex; align-items: center; padding: 0 2rem; flex: 1; }
+.site-title { font-family: var(--font-title); font-size: clamp(1.2rem, 2.5vw, 1.75rem); font-weight: 700; color: var(--green-dark); letter-spacing: 0.04em; }
+.header-right { background: var(--green-dark); display: flex; align-items: center; padding: 0 2rem 0 3.5rem; clip-path: polygon(2.5rem 0%, 100% 0%, 100% 100%, 0% 100%); }
+.site-nav { display: flex; gap: 0.4rem; }
+.nav-link { font-family: var(--font-body); font-size: 0.85rem; font-weight: 500; color: var(--text-cream); text-decoration: none; padding: 0.35rem 1.1rem; border: 1.5px solid var(--text-cream); border-radius: var(--radius-pill); transition: background 0.2s, color 0.2s; }
+.nav-link:hover { background: var(--text-cream); color: var(--green-dark); }
+.nav-link.active { background: var(--text-cream); color: var(--green-dark); }
+
+/* ============================================================
+   FOOTER
+============================================================ */
+.site-footer { background: var(--cream); border-top: 2px solid var(--green-dark); padding: 1rem 2rem; margin-top: auto; }
+.footer-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.8rem; }
+.footer-copy { display: flex; flex-direction: column; gap: 0.3rem; }
+.footer-copy > span, .footer-links a { font-size: 0.73rem; color: var(--text-dark); }
+.footer-links { display: flex; gap: 1rem; }
+.footer-links a { text-decoration: underline; text-underline-offset: 2px; transition: opacity 0.2s; }
+.footer-links a:hover { opacity: 0.55; }
+.footer-credit { display: flex; flex-direction: column; align-items: flex-end; gap: 0.1rem; font-size: 0.73rem; color: var(--text-dark); }
+
+/* ============================================================
+   SNAKES PAGE
+============================================================ */
+.main-content { flex: 1; max-width: 1100px; width: 100%; margin: 2.5rem auto 0; padding: 0 2rem; }
+.snake-detail { display: grid; grid-template-columns: 5fr 6fr; gap: 2.5rem; align-items: start; margin-bottom: 2.5rem; }
+.snake-left { display: flex; flex-direction: column; gap: 0.6rem; }
+.snake-image-wrap { position: relative; border: 2px solid var(--green-dark); border-radius: var(--radius-sm); overflow: hidden; background: var(--green-mid); aspect-ratio: 4/3; }
+.snake-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.45s ease; }
+.snake-image-wrap:hover .snake-img { transform: scale(1.04); }
+.photo-credit { position: absolute; bottom: 0.5rem; left: 0.5rem; font-size: 0.68rem; font-family: var(--font-mono); color: var(--text-cream); background: rgba(0,0,0,0.45); padding: 0.12rem 0.4rem; border-radius: 2px; }
+.snake-thumbnails { display: flex; gap: 0.5rem; }
+.thumb { flex: 1; aspect-ratio: 4/3; border: 2px solid transparent; border-radius: var(--radius-sm); overflow: hidden; cursor: pointer; opacity: 0.55; transition: opacity 0.2s, border-color 0.2s; }
+.thumb img { width: 100%; height: 100%; object-fit: cover; }
+.thumb:hover { opacity: 0.85; }
+.thumb.active { border-color: var(--green-dark); opacity: 1; }
+.description-box { border: 2px solid var(--green-mid); border-radius: var(--radius-sm); padding: 1rem 1.2rem; background: var(--cream); transition: opacity 0.3s ease; }
+.description-box p { font-size: 0.84rem; line-height: 1.75; color: var(--text-dark); }
+.snake-stats { display: flex; flex-direction: column; }
+.stat-row { display: flex; align-items: flex-start; justify-content: space-between; padding: 0.7rem 0; border-bottom: var(--border); gap: 1rem; }
+.stat-header { border-bottom: 2px solid var(--green-dark); padding-bottom: 0.8rem; margin-bottom: 0.1rem; }
+.stat-number { font-family: var(--font-mono); font-size: 0.85rem; letter-spacing: 0.08em; color: var(--text-dark); }
+.stat-name { font-family: var(--font-mono); font-size: 1rem; font-weight: 700; color: var(--text-dark); text-align: right; }
+.stat-label { font-size: 0.85rem; font-weight: 500; color: var(--text-dark); white-space: nowrap; padding-top: 0.2rem; min-width: 100px; }
+.tags { display: flex; flex-wrap: wrap; gap: 0.35rem; justify-content: flex-end; }
+.tag { display: inline-block; padding: 0.2rem 0.8rem; border: 1.5px solid var(--green-dark); border-radius: var(--radius-pill); font-size: 0.78rem; font-family: var(--font-mono); color: var(--green-dark); background: transparent; transition: background 0.2s, color 0.2s; white-space: nowrap; }
+
+/* Snake List */
+.snake-list-section { display: flex; align-items: stretch; gap: 0.5rem; max-width: 1100px; margin: 0 auto 3rem auto; padding: 0; background: var(--green-mid); border-radius: 8px; border: 2px solid var(--green-dark); overflow: hidden; height: 320px; }
+.snake-list { flex: 1; display: flex; flex-direction: column; gap: 0; overflow-y: auto; padding: 0.5rem 0; scrollbar-width: none; }
+.snake-list::-webkit-scrollbar { display: none; }
+.snake-list-item { display: flex; align-items: center; gap: 1.5rem; padding: 0.55rem 1rem; cursor: pointer; border-bottom: 1px solid rgba(242,237,218,0.08); color: var(--text-cream); transition: background 0.18s, transform 0.14s; user-select: none; }
+.snake-list-item:hover { background: rgba(255,255,255,0.1); transform: translateX(3px); }
+.snake-list-item.active { background: var(--green-dark); border-bottom-color: rgba(242,237,218,0.12); }
+.list-number { font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.06em; opacity: 0.7; min-width: 52px; }
+.list-name { font-family: var(--font-body); font-size: 0.85rem; font-weight: 500; }
+.list-scrollbar { width: 6px; background: rgba(242,237,218,0.12); flex-shrink: 0; margin: 0.5rem 0.4rem 0.5rem 0; border-radius: 10px; position: relative; }
+.list-scrollbar-thumb { position: absolute; width: 100%; background: var(--text-cream); border-radius: 10px; transition: top 0.15s ease, height 0.15s ease; }
+
+/* ============================================================
+   HOME PAGE — Hero
+============================================================ */
+.hero { display: grid; grid-template-columns: 1fr 1fr; min-height: 480px; max-width: 1100px; margin: 3rem auto 0; padding: 0 2rem; gap: 3rem; align-items: center; }
+.hero-eyebrow { font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--green-mid); margin-bottom: 1rem; }
+.hero-headline { font-family: var(--font-title); font-size: clamp(2.2rem, 5vw, 3.8rem); line-height: 1.1; color: var(--green-dark); margin-bottom: 1.2rem; }
+.hero-sub { font-size: 0.95rem; line-height: 1.8; color: var(--text-dark); max-width: 420px; margin-bottom: 2rem; opacity: 0.85; }
+.hero-cta { display: inline-block; background: var(--green-dark); color: var(--cream); font-family: var(--font-mono); font-size: 0.82rem; letter-spacing: 0.06em; padding: 0.75rem 2rem; border-radius: var(--radius-pill); text-decoration: none; transition: background 0.2s, transform 0.15s; }
+.hero-cta:hover { background: var(--green-mid); transform: translateY(-2px); }
+/* Family card — full card clickable */
+.family-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.family-card-link:hover .family-card,
+.family-card-link:focus .family-card {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(27,58,40,0.15);
+  border-color: var(--green-dark);
+}
+
+.family-card-link:focus {
+  outline: 2px solid var(--green-dark);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
+/* ============================================================
+   HOME PAGE — Hero Visual (line drawing, editorial)
+============================================================ */
+.hero-visual {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  position: relative;
+}
+
+.hero-snake-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+}
+
+.hero-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  overflow: visible;
+}
+
+/* Soft ambient glow — wide, very faint */
+.snake-glow {
+  stroke: rgba(27,58,40,0.06);
+  fill: none;
+  transition: stroke 0.6s ease;
+}
+.hero-snake-wrap:hover .snake-glow { stroke: rgba(27,58,40,0.10); }
+
+/* The single body line — the whole snake in one stroke */
+.snake-body {
+  stroke: rgba(27,58,40,0.18);
+  fill: none;
+  transition: stroke 0.6s ease;
+}
+.hero-snake-wrap:hover .snake-body { stroke: rgba(27,58,40,0.32); }
+
+/* Inner belly offset line */
+.snake-belly {
+  stroke: rgba(27,58,40,0.07);
+  fill: none;
+  transition: stroke 0.6s ease;
+}
+.hero-snake-wrap:hover .snake-belly { stroke: rgba(27,58,40,0.14); }
+
+/* Perpendicular scale ticks */
+.snake-ticks line {
+  stroke: rgba(27,58,40,0.12);
+  stroke-width: 0.9;
+  stroke-linecap: round;
+  transition: stroke 0.6s ease;
+}
+.hero-snake-wrap:hover .snake-ticks line { stroke: rgba(27,58,40,0.24); }
+
+/* Dorsal pattern dots — paired, like a garter snake */
+.snake-dots circle {
+  fill: rgba(27,58,40,0.13);
+  transition: fill 0.6s ease;
+}
+.hero-snake-wrap:hover .snake-dots circle { fill: rgba(27,58,40,0.26); }
+
+/* Head — barely there */
+.snake-head ellipse {
+  fill: none;
+  stroke: rgba(27,58,40,0.14);
+  stroke-width: 1;
+  transition: stroke 0.6s ease;
+}
+.hero-snake-wrap:hover .snake-head ellipse { stroke: rgba(27,58,40,0.26); }
+
+.snake-head circle {
+  fill: rgba(27,58,40,0.18);
+  transition: fill 0.6s ease;
+}
+.hero-snake-wrap:hover .snake-head circle { fill: rgba(27,58,40,0.38); }
+
+.snake-head ellipse:last-of-type {
+  fill: rgba(27,58,40,0.55);
+  stroke: none;
+}
+
+.snake-head path {
+  stroke: rgba(27,58,40,0.15);
+  fill: none;
+  stroke-linecap: round;
+  transition: stroke 0.6s ease;
+}
+.hero-snake-wrap:hover .snake-head path { stroke: rgba(100,20,20,0.40); }
+
+/* Latin genus names flowing along the spine */
+.snake-latin {
+  font-family: var(--font-mono);
+  font-size: 6px;
+  fill: rgba(27,58,40,0.08);
+  letter-spacing: 0.14em;
+  font-style: italic;
+  transition: fill 0.6s ease;
+}
+.hero-snake-wrap:hover .snake-latin { fill: rgba(27,58,40,0.22); }
+
+/* Floating species numbers */
+.art-num {
+  position: absolute;
+  font-family: var(--font-mono);
+  color: var(--green-dark);
+  letter-spacing: 0.1em;
+  line-height: 1;
+  pointer-events: none;
+  transition: opacity 0.6s ease;
+  z-index: 2;
+}
+.art-num--xl { font-size: 2.4rem; opacity: 0.05; font-weight: 700; }
+.art-num--lg { font-size: 1.6rem; opacity: 0.08; font-weight: 700; }
+.art-num--md { font-size: 0.95rem; opacity: 0.13; }
+.art-num--sm { font-size: 0.68rem; opacity: 0.18; letter-spacing: 0.18em; }
+.hero-snake-wrap:hover .art-num { opacity: 0; }
+
+/* Taxonomy strip */
+.art-taxa-strip {
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 0 0;
+}
+.art-taxa-strip span {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.14em;
+  color: var(--green-dark);
+  opacity: 0.18;
+  transition: opacity 0.5s ease;
+}
+.hero-snake-wrap:hover .art-taxa-strip span { opacity: 0.45; }
+
+/* ============================================================
+   HOME PAGE — Stat Bar
+============================================================ */
+.stat-bar { display: flex; align-items: center; justify-content: center; background: var(--green-dark); margin: 3rem 0 0; padding: 1.8rem 2rem; }
+.stat-bar-item { display: flex; flex-direction: column; align-items: center; gap: 0.3rem; padding: 0 3rem; }
+.stat-bar-number { font-family: var(--font-mono); font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 700; color: var(--cream); line-height: 1; }
+.stat-bar-label { font-size: 0.75rem; color: rgba(242,237,218,0.65); letter-spacing: 0.06em; text-transform: uppercase; font-family: var(--font-mono); }
+.stat-bar-divider { width: 1px; height: 40px; background: rgba(242,237,218,0.2); flex-shrink: 0; }
+
+/* ============================================================
+   HOME PAGE — Family Cards
+============================================================ */
+.family-section { max-width: 1100px; margin: 4rem auto 0; padding: 0 2rem; }
+.section-heading { font-family: var(--font-title); font-size: clamp(1.4rem, 3vw, 2rem); color: var(--green-dark); margin-bottom: 1.8rem; }
+.family-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; margin-bottom: 4rem; }
+.family-card { border: 2px solid var(--green-dark); border-radius: 6px; overflow: hidden; display: flex; flex-direction: column; transition: transform 0.2s, box-shadow 0.2s; }
+.family-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(27,58,40,0.12); }
+.family-card-header { display: flex; align-items: center; justify-content: space-between; padding: 0.8rem 1rem; }
+.family-card-header.colubridae       { background: var(--green-mid); }
+.family-card-header.viperidae        { background: #5C2020; }
+.family-card-header.elapidae         { background: #8B3A1A; }
+.family-card-header.boidae           { background: #4A6741; }
+.family-card-header.leptotyphlopidae { background: #3A5A4A; }
+.family-emoji { font-size: 1.3rem; }
+.family-tag-pill { font-family: var(--font-mono); font-size: 0.68rem; padding: 0.18rem 0.65rem; border-radius: var(--radius-pill); border: 1.5px solid rgba(242,237,218,0.6); color: var(--cream); letter-spacing: 0.04em; }
+.family-tag-pill.venomous { border-color: #FFB3B3; color: #FFB3B3; }
+.family-card-body { padding: 1.2rem; background: var(--cream); flex: 1; display: flex; flex-direction: column; gap: 0.4rem; }
+.family-name { font-family: var(--font-title); font-size: 1.1rem; color: var(--green-dark); }
+.family-sub { font-size: 0.76rem; color: var(--green-mid); font-family: var(--font-mono); }
+.family-count { font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-dark); opacity: 0.5; letter-spacing: 0.06em; }
+.family-desc { font-size: 0.82rem; line-height: 1.7; color: var(--text-dark); flex: 1; margin-top: 0.4rem; }
+.family-link { display: inline-block; margin-top: 0.8rem; font-family: var(--font-mono); font-size: 0.75rem; color: var(--green-dark); text-decoration: none; font-weight: 700; letter-spacing: 0.04em; transition: opacity 0.2s; }
+.family-link:hover { opacity: 0.55; }
+
+/* ============================================================
+   HOME PAGE — Safety Banner
+============================================================ */
+.safety-banner { background: var(--green-dark); padding: 3rem 2rem; }
+.safety-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
+.safety-heading { font-family: var(--font-title); font-size: clamp(1.3rem, 2.5vw, 1.8rem); color: var(--cream); margin-bottom: 0.8rem; }
+.safety-banner > .safety-inner > div > p { font-size: 0.88rem; line-height: 1.8; color: rgba(242,237,218,0.8); }
+
+.safety-rules { display: flex; flex-direction: column; gap: 0.7rem; }
+
+.safety-rule {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 0.85rem 1rem;
+  border: 1px solid rgba(242,237,218,0.15);
+  border-radius: var(--radius-sm);
+  background: rgba(255,255,255,0.04);
+  cursor: default;
+  transition: background 0.25s ease, border-color 0.25s ease, transform 0.2s ease;
+  outline: none;
+}
+.safety-rule:hover,
+.safety-rule:focus {
+  background: rgba(255,255,255,0.10);
+  border-color: rgba(242,237,218,0.4);
+  transform: translateX(6px);
+}
+
+.safety-rule-icon { font-size: 1.2rem; flex-shrink: 0; transition: transform 0.25s ease; }
+.safety-rule:hover .safety-rule-icon,
+.safety-rule:focus .safety-rule-icon { transform: scale(1.3); }
+
+.safety-rule-content { display: flex; flex-direction: column; gap: 0.15rem; flex: 1; }
+.safety-rule-title { font-size: 0.84rem; color: var(--cream); font-weight: 600; }
+
+.safety-rule-sub {
+  font-size: 0.73rem;
+  color: rgba(242,237,218,0.6);
+  line-height: 1.4;
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 0.25s ease, max-height 0.25s ease;
+}
+.safety-rule:hover .safety-rule-sub,
+.safety-rule:focus .safety-rule-sub { opacity: 1; max-height: 40px; }
+
+.safety-rule-badge {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  padding: 0.18rem 0.55rem;
+  border-radius: var(--radius-pill);
+  flex-shrink: 0;
+  opacity: 0;
+  transform: translateX(8px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+.safety-rule:hover .safety-rule-badge,
+.safety-rule:focus .safety-rule-badge { opacity: 1; transform: translateX(0); }
+
+.venomous-badge { background: rgba(180,40,40,0.35); color: #FFB3B3; border: 1px solid rgba(255,179,179,0.4); }
+.safe-badge     { background: rgba(45,90,61,0.6);   color: #A8D8B0; border: 1px solid rgba(168,216,176,0.4); }
+
+/* ============================================================
+   ABOUT PAGE
+============================================================ */
+.about-main { flex: 1; max-width: 1100px; width: 100%; margin: 0 auto; padding: 0 2rem; }
+.about-hero { padding: 3rem 0 2rem; border-bottom: 2px solid var(--green-dark); }
+.about-title { font-family: var(--font-title); font-size: clamp(1.8rem, 4vw, 2.8rem); color: var(--green-dark); margin-bottom: 1rem; line-height: 1.15; }
+.about-lead { font-size: 0.95rem; line-height: 1.85; color: var(--text-dark); opacity: 0.85; max-width: 720px; }
+.about-body { padding-bottom: 4rem; }
+.about-section { display: grid; grid-template-columns: 180px 1fr; gap: 3rem; padding: 3rem 0; align-items: start; }
+.about-divider { border: none; border-top: var(--border); margin: 0; }
+.about-section-label { display: flex; flex-direction: column; gap: 0.3rem; padding-top: 0.2rem; }
+.about-label-number { font-family: var(--font-mono); font-size: 1.6rem; font-weight: 700; color: var(--green-dark); opacity: 0.18; line-height: 1; }
+.about-label-text { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--green-mid); }
+.about-section-content h3 { font-family: var(--font-title); font-size: 1.3rem; color: var(--green-dark); margin-bottom: 0.9rem; }
+.about-section-content p { font-size: 0.88rem; line-height: 1.85; color: var(--text-dark); margin-bottom: 0.8rem; }
+.about-section-content p:last-child { margin-bottom: 0; }
+.about-list { padding-left: 1.2rem; margin: 0.6rem 0 0.8rem; display: flex; flex-direction: column; gap: 0.4rem; }
+.about-list li { font-size: 0.86rem; line-height: 1.7; color: var(--text-dark); }
+.inline-link { color: var(--green-mid); text-decoration: underline; text-underline-offset: 3px; font-weight: 500; }
+kbd { display: inline-block; padding: 0.1rem 0.45rem; border: 1.5px solid var(--green-dark); border-radius: 3px; font-family: var(--font-mono); font-size: 0.75rem; background: rgba(27,58,40,0.06); }
+.how-to-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; margin-top: 1.2rem; }
+.how-to-item { display: flex; align-items: flex-start; gap: 0.6rem; padding: 0.7rem 0.9rem; border: var(--border); border-radius: var(--radius-sm); background: rgba(27,58,40,0.03); }
+.how-to-icon { font-size: 1rem; flex-shrink: 0; }
+.how-to-item span:last-child { font-size: 0.8rem; line-height: 1.6; color: var(--text-dark); }
+.safety-callout { display: flex; align-items: flex-start; gap: 0.8rem; margin-top: 1.2rem; padding: 1rem 1.2rem; background: var(--green-dark); border-radius: var(--radius-sm); }
+.safety-callout-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: 0.1rem; }
+.safety-callout p { font-size: 0.84rem; line-height: 1.7; color: var(--cream) !important; margin: 0 !important; opacity: 1 !important; }
+.designer-meta { display: flex; flex-direction: column; gap: 0; margin-top: 1.2rem; border: var(--border); border-radius: var(--radius-sm); overflow: hidden; }
+.designer-meta-item { display: flex; align-items: stretch; border-bottom: var(--border); }
+.designer-meta-item:last-child { border-bottom: none; }
+.designer-meta-label { font-family: var(--font-mono); font-size: 0.73rem; letter-spacing: 0.06em; color: var(--cream); background: var(--green-dark); padding: 0.6rem 1rem; min-width: 120px; display: flex; align-items: center; }
+.designer-meta-value { font-size: 0.83rem; padding: 0.6rem 1rem; color: var(--text-dark); display: flex; align-items: center; }
+
+/* ============================================================
+   RESPONSIVE
+============================================================ */
+@media (max-width: 768px) {
+  .site-header { flex-direction: column; align-items: flex-start; }
+  .header-left { padding: 0.8rem 1.2rem 0.4rem; }
+  .header-right { clip-path: none; width: 100%; padding: 0.5rem 1.2rem 0.8rem; justify-content: flex-start; }
+  .main-content { padding: 0 1.2rem; margin-top: 1.5rem; }
+  .snake-detail { grid-template-columns: 1fr; gap: 1.5rem; }
+  .tags { justify-content: flex-start; }
+  .stat-row { flex-direction: column; gap: 0.4rem; }
+  .snake-list-section { margin: 0 0 2rem 0; height: 260px; }
+  .hero { grid-template-columns: 1fr; margin-top: 1.5rem; }
+  .hero-visual { display: none; }
+  .stat-bar { flex-wrap: wrap; gap: 1.5rem; }
+  .stat-bar-divider { display: none; }
+  .stat-bar-item { padding: 0 1rem; }
+  .family-grid { grid-template-columns: 1fr; }
+  .safety-inner { grid-template-columns: 1fr; gap: 1.5rem; }
+  .about-section { grid-template-columns: 1fr; gap: 1rem; padding: 2rem 0; }
+  .how-to-grid { grid-template-columns: 1fr; }
+  .designer-meta-item { flex-direction: column; }
+  .designer-meta-label { min-width: unset; }
+  .footer-inner { flex-direction: column; align-items: flex-start; }
+  .footer-credit { align-items: flex-start; }
+}

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Snake Syllabusss — Snakes</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Space+Mono:wght@400;700&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="GD2P2_HoangH_Snakes.css" />
+</head>
+<body>
+
+  <header class="site-header" role="banner">
+    <div class="header-left">
+      <h1 class="site-title">SNAKE SYLLABUSSS</h1>
+    </div>
+    <div class="header-right">
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="GD2P2_HoangH_Home.html"       class="nav-link">Home</a>
+        <a href="GD2P2_HoangH_Snakes.html"      class="nav-link active">Snakes</a>
+        <a href="GD2P2_HoangH_Filter.html"      class="nav-link">Filter</a>
+        <a href="GD2P2_HoangH_QuickGuide.html"  class="nav-link">Quick Guide</a>
+        <a href="GD2P2_HoangH_About.html"       class="nav-link">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main-content" role="main">
+    <section class="snake-detail" id="snake-detail" aria-label="Snake profile">
+      <div class="snake-left">
+        <figure class="snake-image-wrap">
+          <img src="" alt="" class="snake-img" id="snake-img" />
+          <figcaption class="photo-credit" id="photo-credit"></figcaption>
+        </figure>
+        <div class="snake-thumbnails" id="snake-thumbnails" aria-label="Additional photos"></div>
+        <div class="description-box" id="desc-box">
+          <p id="snake-desc"></p>
+        </div>
+      </div>
+      <div class="snake-stats" aria-label="Snake statistics">
+        <div class="stat-row stat-header">
+          <span class="stat-number" id="stat-number"></span>
+          <span class="stat-name"   id="stat-name"></span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Size</span>
+          <div class="tags" id="tags-size"></div>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Danger Level</span>
+          <div class="tags" id="tags-danger"></div>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Active</span>
+          <div class="tags" id="tags-active"></div>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Location</span>
+          <div class="tags" id="tags-location"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="snake-list-section" aria-label="All snakes">
+      <div class="snake-list" id="snake-list" role="list"></div>
+      <div class="list-scrollbar" aria-hidden="true">
+        <div class="list-scrollbar-thumb" id="scrollbar-thumb"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-copy">
+        <span>© 2025 Snake Syllabusss. All Rights Reserved.</span>
+        <nav class="footer-links" aria-label="Footer links">
+          <a href="#">Privacy</a>
+          <a href="#">Accessibility</a>
+          <a href="#">Terms &amp; Conditions</a>
+        </nav>
+      </div>
+      <div class="footer-credit">
+        <span>Designer: Hani Hoang</span>
+        <span>OCAD University</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="GD2P2_HoangH_Snakes.js"></script>
+</body>
+</html>

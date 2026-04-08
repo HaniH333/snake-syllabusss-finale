@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Snake Syllabusss — Quick Guide</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Space+Mono:wght@400;700&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="GD2P2_HoangH_Snakes.css" />
+  <style>
+    .guide-main {
+      flex: 1;
+    }
+
+    /* ── Page Hero ── */
+    .guide-hero {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 3rem 2rem 2rem;
+      border-bottom: 2px solid var(--green-dark);
+    }
+
+    .guide-hero h2 {
+      font-family: var(--font-title);
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      color: var(--green-dark);
+      line-height: 1.15;
+      margin-bottom: 0.6rem;
+    }
+
+    .guide-hero p {
+      font-size: 0.9rem;
+      line-height: 1.8;
+      color: var(--text-dark);
+      opacity: 0.8;
+      max-width: 640px;
+    }
+
+    /* ── Section wrapper ── */
+    .guide-body {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 2rem 5rem;
+    }
+
+    .guide-section {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 3rem;
+      padding: 3rem 0;
+      align-items: start;
+    }
+
+    .guide-divider {
+      border: none;
+      border-top: 1.5px solid var(--green-dark);
+      margin: 0;
+    }
+
+    .guide-section-label {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+      padding-top: 0.2rem;
+    }
+
+    .guide-label-number {
+      font-family: var(--font-mono);
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--green-dark);
+      opacity: 0.18;
+      line-height: 1;
+    }
+
+    .guide-label-text {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--green-mid);
+    }
+
+    .guide-section-content h3 {
+      font-family: var(--font-title);
+      font-size: 1.4rem;
+      color: var(--green-dark);
+      margin-bottom: 0.9rem;
+    }
+
+    .guide-section-content p {
+      font-size: 0.88rem;
+      line-height: 1.85;
+      color: var(--text-dark);
+      margin-bottom: 0.8rem;
+      max-width: 640px;
+    }
+
+    /* ── Diagram placeholder ── */
+    .diagram-placeholder {
+      border: 2px dashed rgba(27,58,40,0.25);
+      border-radius: 6px;
+      padding: 2.5rem 2rem;
+      text-align: center;
+      margin: 1.2rem 0;
+      background: rgba(27,58,40,0.02);
+    }
+
+    .diagram-placeholder-icon {
+      font-size: 2rem;
+      margin-bottom: 0.6rem;
+      opacity: 0.35;
+    }
+
+    .diagram-placeholder p {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      color: var(--green-mid);
+      opacity: 0.6;
+      margin: 0;
+    }
+
+    /* ── Venomous ID rules (reused from home) ── */
+    /* safety-banner, safety-inner, safety-rules etc. already in shared CSS */
+
+    /* standalone version — light background */
+    .id-rules-wrap {
+      margin-top: 1.2rem;
+    }
+
+    /* ── Safety callout (reused from about) ── */
+    .safety-callout {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.8rem;
+      margin-top: 1rem;
+      padding: 1rem 1.2rem;
+      background: var(--green-dark);
+      border-radius: 4px;
+    }
+
+    .safety-callout-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: 0.1rem; }
+    .safety-callout p {
+      font-size: 0.84rem;
+      line-height: 1.7;
+      color: var(--cream) !important;
+      margin: 0 !important;
+      opacity: 1 !important;
+    }
+
+    @media (max-width: 768px) {
+      .guide-section { grid-template-columns: 1fr; gap: 1rem; padding: 2rem 0; }
+    }
+
+    /* ── Safety rule overrides for light background ── */
+    .guide-section-content .safety-rule {
+      border-color: rgba(27,58,40,0.18);
+      background: rgba(27,58,40,0.03);
+    }
+    .guide-section-content .safety-rule:hover,
+    .guide-section-content .safety-rule:focus {
+      background: rgba(27,58,40,0.07);
+      border-color: rgba(27,58,40,0.35);
+    }
+    .guide-section-content .safety-rule-title {
+      color: var(--green-dark);
+    }
+    .guide-section-content .safety-rule-sub {
+      color: rgba(27,58,40,0.65);
+      opacity: 1;
+      max-height: none;
+    }
+    .guide-section-content .safety-rule:hover .safety-rule-sub,
+    .guide-section-content .safety-rule:focus .safety-rule-sub {
+      opacity: 1;
+      max-height: none;
+    }
+    .guide-section-content .safety-rule-badge {
+      opacity: 1;
+      transform: none;
+    }
+    .guide-section-content .venomous-badge {
+      background: rgba(180,40,40,0.1);
+      color: #8B1A1A;
+      border-color: rgba(180,40,40,0.3);
+    }
+    .guide-section-content .safe-badge {
+      background: rgba(27,58,40,0.1);
+      color: var(--green-mid);
+      border-color: rgba(27,58,40,0.3);
+    }
+
+    /* ── Light-theme overrides for safety rules on this page ── */
+    .guide-section-content .safety-rule {
+      border: 1px solid rgba(27,58,40,0.18);
+      background: rgba(27,58,40,0.03);
+    }
+    .guide-section-content .safety-rule:hover,
+    .guide-section-content .safety-rule:focus {
+      background: rgba(27,58,40,0.07);
+      border-color: rgba(27,58,40,0.35);
+    }
+    .guide-section-content .safety-rule-title {
+      color: var(--green-dark);
+    }
+    .guide-section-content .safety-rule-sub {
+      color: rgba(27,58,40,0.65);
+      opacity: 1;
+      max-height: none;
+    }
+    .guide-section-content .safety-rule-badge {
+      opacity: 1;
+      transform: none;
+    }
+    .venomous-badge {
+      background: rgba(92,32,32,0.1);
+      color: #5C2020;
+      border: 1px solid rgba(92,32,32,0.3);
+    }
+    .safe-badge {
+      background: rgba(27,58,40,0.1);
+      color: var(--green-dark);
+      border: 1px solid rgba(27,58,40,0.3);
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header" role="banner">
+    <div class="header-left">
+      <h1 class="site-title">SNAKE SYLLABUSSS</h1>
+    </div>
+    <div class="header-right">
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="GD2P2_HoangH_Home.html"       class="nav-link">Home</a>
+        <a href="GD2P2_HoangH_Snakes.html"      class="nav-link">Snakes</a>
+        <a href="GD2P2_HoangH_Filter.html"      class="nav-link">Filter</a>
+        <a href="GD2P2_HoangH_QuickGuide.html"  class="nav-link active">Quick Guide</a>
+        <a href="GD2P2_HoangH_About.html"       class="nav-link">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="guide-main" role="main">
+
+    <div class="guide-hero">
+      <p class="hero-eyebrow">Field Reference</p>
+      <h2>Quick Guide</h2>
+      <p>A fast-reference guide for identifying venomous snakes in North America and what to do if you encounter one. Hand-drawn identification diagrams coming soon.</p>
+    </div>
+
+    <div class="guide-body">
+
+      <!-- SECTION 01 — Can't Tell if It's Venomous? -->
+      <article class="guide-section">
+        <div class="guide-section-label">
+          <span class="guide-label-number">01</span>
+          <span class="guide-label-text">ID Rules</span>
+        </div>
+        <div class="guide-section-content">
+          <h3>Can't Tell if It's Venomous?</h3>
+          <p>North America has many harmless snakes that mimic venomous ones. When in doubt — back away slowly. Never handle a wild snake unless trained to do so.</p>
+
+          <div class="id-rules-wrap">
+            <div class="safety-rules">
+              <div class="safety-rule" tabindex="0">
+                <span class="safety-rule-icon">🔴</span>
+                <div class="safety-rule-content">
+                  <strong class="safety-rule-title">Red touches yellow</strong>
+                  <span class="safety-rule-sub">Coral Snake — neurotoxic venom, seek emergency care</span>
+                </div>
+                <span class="safety-rule-badge venomous-badge">VENOMOUS</span>
+              </div>
+              <div class="safety-rule" tabindex="0">
+                <span class="safety-rule-icon">⚫</span>
+                <div class="safety-rule-content">
+                  <strong class="safety-rule-title">Red touches black</strong>
+                  <span class="safety-rule-sub">Milksnake or Scarlet Kingsnake — completely harmless</span>
+                </div>
+                <span class="safety-rule-badge safe-badge">HARMLESS</span>
+              </div>
+              <div class="safety-rule" tabindex="0">
+                <span class="safety-rule-icon">📐</span>
+                <div class="safety-rule-content">
+                  <strong class="safety-rule-title">Triangular head + heat pits</strong>
+                  <span class="safety-rule-sub">Likely a pit viper — Rattlesnake, Copperhead or Cottonmouth</span>
+                </div>
+                <span class="safety-rule-badge venomous-badge">CAUTION</span>
+              </div>
+              <div class="safety-rule" tabindex="0">
+                <span class="safety-rule-icon">🔔</span>
+                <div class="safety-rule-content">
+                  <strong class="safety-rule-title">Rattle on tail</strong>
+                  <span class="safety-rule-sub">Rattlesnake — back away, do not provoke or handle</span>
+                </div>
+                <span class="safety-rule-badge venomous-badge">VENOMOUS</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="diagram-placeholder" style="margin-top:1.5rem;">
+            <div class="diagram-placeholder-icon">✏️</div>
+            <p>HAND-DRAWN DIAGRAMS — COMING SOON</p>
+          </div>
+
+        </div>
+      </article>
+
+      <hr class="guide-divider" />
+
+      <!-- SECTION 02 — Safety Rules -->
+      <article class="guide-section">
+        <div class="guide-section-label">
+          <span class="guide-label-number">02</span>
+          <span class="guide-label-text">Safety</span>
+        </div>
+        <div class="guide-section-content">
+          <h3>If You Encounter a Snake</h3>
+          <p>Most snakebites happen when people try to handle or kill a snake. The safest rule is always the same — observe from a distance and leave it alone.</p>
+
+          <div class="safety-rules" style="margin-top:1.2rem;">
+            <div class="safety-rule" tabindex="0">
+              <span class="safety-rule-icon">👀</span>
+              <div class="safety-rule-content">
+                <strong class="safety-rule-title">Keep your distance</strong>
+                <span class="safety-rule-sub">Stay at least 6 feet away — most snakes can strike up to half their body length</span>
+              </div>
+              <span class="safety-rule-badge safe-badge">ALWAYS</span>
+            </div>
+            <div class="safety-rule" tabindex="0">
+              <span class="safety-rule-icon">🚫</span>
+              <div class="safety-rule-content">
+                <strong class="safety-rule-title">Never handle a wild snake</strong>
+                <span class="safety-rule-sub">Even harmless species bite when threatened — hands-off is always the right call</span>
+              </div>
+              <span class="safety-rule-badge safe-badge">ALWAYS</span>
+            </div>
+            <div class="safety-rule" tabindex="0">
+              <span class="safety-rule-icon">📸</span>
+              <div class="safety-rule-content">
+                <strong class="safety-rule-title">Photo, not capture</strong>
+                <span class="safety-rule-sub">A photo is enough for identification — use the zoom on your phone</span>
+              </div>
+              <span class="safety-rule-badge safe-badge">TIP</span>
+            </div>
+            <div class="safety-rule" tabindex="0">
+              <span class="safety-rule-icon">🏥</span>
+              <div class="safety-rule-content">
+                <strong class="safety-rule-title">If bitten — call immediately</strong>
+                <span class="safety-rule-sub">Poison Control: 1-800-222-1222 · Do not cut, suck or tourniquet</span>
+              </div>
+              <span class="safety-rule-badge venomous-badge">EMERGENCY</span>
+            </div>
+          </div>
+
+          <div class="safety-callout" role="note" style="margin-top:1.5rem;">
+            <span class="safety-callout-icon">⚠️</span>
+            <p>In North America, call <strong>Poison Control at 1-800-222-1222</strong> or go to your nearest emergency room if bitten by a suspected venomous snake.</p>
+          </div>
+
+          <div class="diagram-placeholder" style="margin-top:1.5rem;">
+            <div class="diagram-placeholder-icon">✏️</div>
+            <p>HAND-DRAWN DIAGRAMS — COMING SOON</p>
+          </div>
+
+        </div>
+      </article>
+
+    </div>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-copy">
+        <span>© 2025 Snake Syllabusss. All Rights Reserved.</span>
+        <nav class="footer-links" aria-label="Footer links">
+          <a href="#">Privacy</a>
+          <a href="#">Accessibility</a>
+          <a href="#">Terms &amp; Conditions</a>
+        </nav>
+      </div>
+      <div class="footer-credit">
+        <span>Designer: Hani Hoang</span>
+        <span>OCAD University</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Snake Syllabusss — Home</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Space+Mono:wght@400;700&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="GD2P2_HoangH_Snakes.css" />
+</head>
+<body>
+
+  <header class="site-header" role="banner">
+    <div class="header-left">
+      <h1 class="site-title">SNAKE SYLLABUSSS</h1>
+    </div>
+    <div class="header-right">
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="GD2P2_HoangH_Home.html"       class="nav-link active">Home</a>
+        <a href="GD2P2_HoangH_Snakes.html"      class="nav-link">Snakes</a>
+        <a href="GD2P2_HoangH_Filter.html"      class="nav-link">Filter</a>
+        <a href="GD2P2_HoangH_QuickGuide.html"  class="nav-link">Quick Guide</a>
+        <a href="GD2P2_HoangH_About.html"       class="nav-link">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main role="main">
+
+    <!-- HERO -->
+    <section class="hero" aria-label="Introduction">
+      <div class="hero-text">
+        <p class="hero-eyebrow">A Field Reference</p>
+        <h2 class="hero-headline">Know Your<br/>North American<br/>Snakes.</h2>
+        <p class="hero-sub">56 species. Detailed profiles. From harmless gartersnakes in your backyard to the most venomous pit vipers on the continent — all in one place.</p>
+        <a href="GD2P2_HoangH_Snakes.html" class="hero-cta">Browse All Snakes</a>
+      </div>
+
+      <div class="hero-visual" aria-hidden="true">
+        <div class="hero-snake-wrap">
+          <svg class="hero-svg" viewBox="0 0 400 540" xmlns="http://www.w3.org/2000/svg" fill="none">
+            <defs>
+              <path id="textspine"
+                d="M 220 510 C 270 480 320 430 300 370
+                  C 280 310 170 300 160 240
+                  C 150 180 250 150 240 95
+                  C 232 55 170 35 130 40"/>
+            </defs>
+
+            <!-- ── GHOST COIL — the whole snake as one breath ── -->
+
+            <!-- Soft outer glow — barely visible -->
+            <path class="snake-glow"
+              d="M 220 510
+                C 270 480 330 435 310 372
+                C 290 308 172 298 162 238
+                C 152 178 252 148 242 92
+                C 233 50 168 30 126 36"
+              stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+
+            <!-- Main body line — thin, single elegant stroke -->
+            <path class="snake-body"
+              d="M 220 510
+                C 270 480 330 435 310 372
+                C 290 308 172 298 162 238
+                C 152 178 252 148 242 92
+                C 233 50 168 30 126 36"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+
+            <!-- Inner belly hint — offset slightly, even thinner -->
+            <path class="snake-belly"
+              d="M 218 508
+                C 266 479 324 436 304 374
+                C 284 312 170 302 160 242
+                C 150 182 248 152 238 96
+                C 229 54 166 34 124 40"
+              stroke-width="1" stroke-linecap="round"/>
+
+            <!-- ── SCALE TICK MARKS ───────────────────────────
+                Short perpendicular ticks along the body —
+                like a naturalist's field guide illustration.
+                Each tick is a tiny line crossing the spine.
+            ──────────────────────────────────────────────── -->
+            <g class="snake-ticks">
+              <!-- Lower coil -->
+              <line x1="234" y1="503" x2="228" y2="517"/>
+              <line x1="248" y1="494" x2="244" y2="508"/>
+              <line x1="262" y1="484" x2="260" y2="498"/>
+              <line x1="276" y1="472" x2="276" y2="486"/>
+              <line x1="290" y1="460" x2="292" y2="474"/>
+              <line x1="303" y1="446" x2="308" y2="459"/>
+              <line x1="313" y1="430" x2="320" y2="443"/>
+              <line x1="318" y1="413" x2="327" y2="424"/>
+              <line x1="318" y1="396" x2="328" y2="406"/>
+              <line x1="314" y1="380" x2="324" y2="388"/>
+
+              <!-- Mid curve transition -->
+              <line x1="304" y1="366" x2="314" y2="372"/>
+              <line x1="290" y1="354" x2="298" y2="358"/>
+              <line x1="274" y1="344" x2="280" y2="347"/>
+              <line x1="256" y1="336" x2="260" y2="338"/>
+              <line x1="238" y1="330" x2="241" y2="331"/>
+              <line x1="220" y1="326" x2="222" y2="326"/>
+              <line x1="202" y1="322" x2="203" y2="322"/>
+              <line x1="186" y1="320" x2="186" y2="320"/>
+              <line x1="170" y1="318" x2="169" y2="318"/>
+              <line x1="156" y1="318" x2="154" y2="318"/>
+
+              <!-- Lower-mid coil -->
+              <line x1="143" y1="320" x2="140" y2="320"/>
+              <line x1="148" y1="306" x2="144" y2="294"/>
+              <line x1="152" y1="290" x2="148" y2="278"/>
+              <line x1="156" y1="275" x2="152" y2="263"/>
+              <line x1="160" y1="260" x2="156" y2="248"/>
+              <line x1="162" y1="244" x2="158" y2="232"/>
+
+              <!-- Upper curve -->
+              <line x1="168" y1="228" x2="164" y2="217"/>
+              <line x1="178" y1="216" x2="172" y2="206"/>
+              <line x1="192" y1="205" x2="186" y2="196"/>
+              <line x1="208" y1="197" x2="202" y2="188"/>
+              <line x1="224" y1="191" x2="219" y2="182"/>
+              <line x1="240" y1="186" x2="236" y2="177"/>
+              <line x1="252" y1="178" x2="250" y2="169"/>
+              <line x1="258" y1="168" x2="258" y2="159"/>
+              <line x1="258" y1="157" x2="260" y2="148"/>
+              <line x1="254" y1="146" x2="258" y2="137"/>
+
+              <!-- Upper body -->
+              <line x1="246" y1="135" x2="252" y2="126"/>
+              <line x1="236" y1="124" x2="242" y2="115"/>
+              <line x1="224" y1="114" x2="230" y2="105"/>
+              <line x1="212" y1="104" x2="218" y2="95"/>
+              <line x1="200" y1="94"  x2="206" y2="85"/>
+              <line x1="188" y1="82"  x2="192" y2="73"/>
+              <line x1="174" y1="70"  x2="177" y2="61"/>
+              <line x1="160" y1="58"  x2="161" y2="49"/>
+              <line x1="146" y1="47"  x2="145" y2="38"/>
+              <line x1="134" y1="40"  x2="130" y2="31"/>
+            </g>
+
+            <!-- ── DORSAL PATTERN DOTS ────────────────────────
+                Paired dots along the dorsal — like a
+                garter snake or kingsnake dorsal pattern
+            ──────────────────────────────────────────────── -->
+            <g class="snake-dots">
+              <circle cx="227" cy="505" r="1.8"/>
+              <circle cx="232" cy="500" r="1.8"/>
+              <circle cx="259" cy="478" r="1.8"/>
+              <circle cx="264" cy="473" r="1.8"/>
+              <circle cx="296" cy="452" r="1.8"/>
+              <circle cx="301" cy="446" r="1.8"/>
+              <circle cx="316" cy="418" r="1.8"/>
+              <circle cx="318" cy="412" r="1.8"/>
+              <circle cx="310" cy="380" r="1.8"/>
+              <circle cx="308" cy="373" r="1.8"/>
+              <circle cx="282" cy="350" r="1.8"/>
+              <circle cx="275" cy="346" r="1.8"/>
+              <circle cx="216" cy="324" r="1.8"/>
+              <circle cx="208" cy="322" r="1.8"/>
+              <circle cx="158" cy="316" r="1.8"/>
+              <circle cx="150" cy="316" r="1.8"/>
+              <circle cx="152" cy="284" r="1.8"/>
+              <circle cx="156" cy="276" r="1.8"/>
+              <circle cx="160" cy="248" r="1.8"/>
+              <circle cx="164" cy="240" r="1.8"/>
+              <circle cx="174" cy="213" r="1.8"/>
+              <circle cx="180" cy="206" r="1.8"/>
+              <circle cx="214" cy="192" r="1.8"/>
+              <circle cx="221" cy="187" r="1.8"/>
+              <circle cx="252" cy="174" r="1.8"/>
+              <circle cx="256" cy="167" r="1.8"/>
+              <circle cx="255" cy="143" r="1.8"/>
+              <circle cx="251" cy="136" r="1.8"/>
+              <circle cx="226" cy="112" r="1.8"/>
+              <circle cx="220" cy="106" r="1.8"/>
+              <circle cx="192" cy="80"  r="1.8"/>
+              <circle cx="185" cy="74"  r="1.8"/>
+              <circle cx="155" cy="52"  r="1.8"/>
+              <circle cx="148" cy="47"  r="1.8"/>
+            </g>
+
+            <!-- ── HEAD — just a suggestion, not a statement ── -->
+            <g class="snake-head">
+              <!-- Head silhouette — oval, barely there -->
+              <ellipse cx="214" cy="517" rx="14" ry="9"
+                transform="rotate(25 214 517)"/>
+
+              <!-- Single eye — small dot -->
+              <circle cx="208" cy="510" r="2.5"/>
+              <!-- Pupil -->
+              <ellipse cx="208" cy="510" rx="0.8" ry="1.8"
+                transform="rotate(10 208 510)"/>
+
+              <!-- Tongue — two thin lines, whisper thin -->
+              <path d="M 202 521 L 188 530 M 188 530 L 183 526 M 188 530 L 183 534"
+                stroke-linecap="round" stroke-width="0.9"/>
+            </g>
+
+            <!-- ── LATIN TEXT ──────────────────────────────── -->
+            <text class="snake-latin">
+              <textPath href="#textspine" startOffset="2%">
+                Crotalus · Thamnophis · Lampropeltis · Pantherophis · Nerodia · Agkistrodon · Micrurus ·
+              </textPath>
+            </text>
+
+          </svg>
+
+          <!-- Floating species numbers — very faint -->
+          <span class="art-num art-num--xl" style="top:4%;  left:4%;">001</span>
+          <span class="art-num art-num--sm" style="top:11%; left:60%;">023</span>
+          <span class="art-num art-num--lg" style="top:23%; left:74%;">041</span>
+          <span class="art-num art-num--md" style="top:36%; left:2%;">007</span>
+          <span class="art-num art-num--sm" style="top:47%; left:80%;">016</span>
+          <span class="art-num art-num--xl" style="top:54%; left:30%;">056</span>
+          <span class="art-num art-num--sm" style="top:67%; left:10%;">034</span>
+          <span class="art-num art-num--md" style="top:77%; left:66%;">049</span>
+          <span class="art-num art-num--sm" style="top:87%; left:40%;">022</span>
+
+          <div class="art-taxa-strip">
+            <span>COLUBRIDAE</span><span>·</span>
+            <span>VIPERIDAE</span><span>·</span>
+            <span>ELAPIDAE</span><span>·</span>
+            <span>BOIDAE</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- STAT BAR -->
+    <section class="stat-bar" aria-label="Site statistics">
+      <div class="stat-bar-item">
+        <span class="stat-bar-number">56</span>
+        <span class="stat-bar-label">Species Documented</span>
+      </div>
+      <div class="stat-bar-divider" aria-hidden="true"></div>
+      <div class="stat-bar-item">
+        <span class="stat-bar-number">5</span>
+        <span class="stat-bar-label">Taxonomic Families</span>
+      </div>
+      <div class="stat-bar-divider" aria-hidden="true"></div>
+      <div class="stat-bar-item">
+        <span class="stat-bar-number">3</span>
+        <span class="stat-bar-label">Venomous Groups</span>
+      </div>
+      <div class="stat-bar-divider" aria-hidden="true"></div>
+      <div class="stat-bar-item">
+        <span class="stat-bar-number">48</span>
+        <span class="stat-bar-label">US States Covered</span>
+      </div>
+    </section>
+
+    <!-- FAMILY CARDS -->
+    <section class="family-section" aria-label="Snake families">
+      <h2 class="section-heading">Browse by Family</h2>
+      <div class="family-grid">
+
+        <a href="GD2P2_HoangH_Snakes.html?family=Colubridae" class="family-card-link">
+          <article class="family-card">
+            <div class="family-card-header colubridae">
+              <span class="family-emoji">🐍</span>
+              <span class="family-tag-pill">Non-Venomous</span>
+            </div>
+            <div class="family-card-body">
+              <h3 class="family-name">Colubridae</h3>
+              <p class="family-sub">Watersnakes, Gartersnakes, Ratsnakes &amp; more</p>
+              <p class="family-count">40 species</p>
+              <p class="family-desc">The largest snake family in North America — diverse, widespread, and overwhelmingly harmless. Found in every habitat from arctic tundra to desert canyon.</p>
+              <span class="family-link">View Species →</span>
+            </div>
+          </article>
+        </a>
+
+        <a href="GD2P2_HoangH_Snakes.html?family=Viperidae" class="family-card-link">
+          <article class="family-card">
+            <div class="family-card-header viperidae">
+              <span class="family-emoji">☠️</span>
+              <span class="family-tag-pill venomous">Venomous</span>
+            </div>
+            <div class="family-card-body">
+              <h3 class="family-name">Viperidae</h3>
+              <p class="family-sub">Rattlesnakes, Copperheads &amp; Cottonmouths</p>
+              <p class="family-count">10 species</p>
+              <p class="family-desc">Pit vipers of North America — identified by heat-sensing pits, triangular heads and in most cases, a rattle. Always treat with respect and distance.</p>
+              <span class="family-link">View Species →</span>
+            </div>
+          </article>
+        </a>
+
+        <a href="GD2P2_HoangH_Snakes.html?family=Elapidae" class="family-card-link">
+          <article class="family-card">
+            <div class="family-card-header elapidae">
+              <span class="family-emoji">🐍</span>
+              <span class="family-tag-pill venomous">Venomous</span>
+            </div>
+            <div class="family-card-body">
+              <h3 class="family-name">Elapidae</h3>
+              <p class="family-sub">Coral Snakes</p>
+              <p class="family-count">3 species</p>
+              <p class="family-desc">North America's coral snakes carry potent neurotoxic venom. Small, secretive, and rarely encountered — but their vivid banding is unmistakable.</p>
+              <span class="family-link">View Species →</span>
+            </div>
+          </article>
+        </a>
+
+        <a href="GD2P2_HoangH_Snakes.html?family=Boidae" class="family-card-link">
+          <article class="family-card">
+            <div class="family-card-header boidae">
+              <span class="family-emoji">🌵</span>
+              <span class="family-tag-pill">Harmless</span>
+            </div>
+            <div class="family-card-body">
+              <h3 class="family-name">Boidae</h3>
+              <p class="family-sub">Rubber Boa &amp; Rosy Boa</p>
+              <p class="family-count">2 species</p>
+              <p class="family-desc">Two native boa species found in western North America. Ancient lineage, docile temperament, and fascinating adaptations for desert and mountain terrain.</p>
+              <span class="family-link">View Species →</span>
+            </div>
+          </article>
+        </a>
+
+        <a href="GD2P2_HoangH_Snakes.html?family=Leptotyphlopidae" class="family-card-link">
+          <article class="family-card">
+            <div class="family-card-header leptotyphlopidae">
+              <span class="family-emoji">🪱</span>
+              <span class="family-tag-pill">Harmless</span>
+            </div>
+            <div class="family-card-body">
+              <h3 class="family-name">Leptotyphlopidae</h3>
+              <p class="family-sub">Threadsnakes</p>
+              <p class="family-count">1 species</p>
+              <p class="family-desc">The Texas Threadsnake is one of the world's smallest snakes — blind, burrowing, and barely thicker than a pencil. Easy to mistake for a pink earthworm.</p>
+              <span class="family-link">View Species →</span>
+            </div>
+          </article>
+        </a>
+
+      </div>
+    </section>
+    
+    <!-- SAFETY BANNER -->
+    <section class="safety-banner" aria-label="Safety information">
+      <div class="safety-inner">
+        <div>
+          <h2 class="safety-heading">Can't Tell if It's Venomous?</h2>
+          <p>North America has many harmless snakes that mimic venomous ones. When in doubt — back away slowly. Never handle a wild snake unless trained to do so.</p>
+        </div>
+        <div class="safety-rules">
+          <div class="safety-rule" tabindex="0">
+            <span class="safety-rule-icon">🔴</span>
+            <div class="safety-rule-content">
+              <strong class="safety-rule-title">Red touches yellow</strong>
+              <span class="safety-rule-sub">Coral Snake — neurotoxic venom, seek emergency care</span>
+            </div>
+            <span class="safety-rule-badge venomous-badge">VENOMOUS</span>
+          </div>
+          <div class="safety-rule" tabindex="0">
+            <span class="safety-rule-icon">⚫</span>
+            <div class="safety-rule-content">
+              <strong class="safety-rule-title">Red touches black</strong>
+              <span class="safety-rule-sub">Milksnake or Scarlet Kingsnake — completely harmless</span>
+            </div>
+            <span class="safety-rule-badge safe-badge">HARMLESS</span>
+          </div>
+          <div class="safety-rule" tabindex="0">
+            <span class="safety-rule-icon">📐</span>
+            <div class="safety-rule-content">
+              <strong class="safety-rule-title">Triangular head + heat pits</strong>
+              <span class="safety-rule-sub">Likely a pit viper — Rattlesnake, Copperhead or Cottonmouth</span>
+            </div>
+            <span class="safety-rule-badge venomous-badge">CAUTION</span>
+          </div>
+          <div class="safety-rule" tabindex="0">
+            <span class="safety-rule-icon">🔔</span>
+            <div class="safety-rule-content">
+              <strong class="safety-rule-title">Rattle on tail</strong>
+              <span class="safety-rule-sub">Rattlesnake — back away, do not provoke or handle</span>
+            </div>
+            <span class="safety-rule-badge venomous-badge">VENOMOUS</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-copy">
+        <span>© 2025 Snake Syllabusss. All Rights Reserved.</span>
+        <nav class="footer-links" aria-label="Footer links">
+          <a href="#">Privacy</a>
+          <a href="#">Accessibility</a>
+          <a href="#">Terms &amp; Conditions</a>
+        </nav>
+      </div>
+      <div class="footer-credit">
+        <span>Designer: Hani Hoang</span>
+        <span>OCAD University</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

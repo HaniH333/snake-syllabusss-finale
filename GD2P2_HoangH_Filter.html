@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Snake Syllabusss — Filter</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Space+Mono:wght@400;700&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="GD2P2_HoangH_Snakes.css" />
+  <style>
+    /* ── Filter Page Specific ── */
+    .filter-main {
+      flex: 1;
+      max-width: 1100px;
+      width: 100%;
+      margin: 2.5rem auto 4rem;
+      padding: 0 2rem;
+    }
+
+    .filter-header {
+      border-bottom: 2px solid var(--green-dark);
+      padding-bottom: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .filter-header h2 {
+      font-family: var(--font-title);
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      color: var(--green-dark);
+      line-height: 1.15;
+      margin-bottom: 0.5rem;
+    }
+
+    .filter-header p {
+      font-size: 0.88rem;
+      color: var(--text-dark);
+      opacity: 0.7;
+      font-family: var(--font-mono);
+      letter-spacing: 0.04em;
+    }
+
+    /* ── Filter Controls ── */
+    .filter-controls {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      margin-bottom: 2.5rem;
+      padding: 1.5rem;
+      border: 2px solid var(--green-dark);
+      border-radius: 6px;
+      background: rgba(27,58,40,0.03);
+    }
+
+    .filter-group {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.2rem;
+    }
+
+    .filter-group-label {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--green-mid);
+      min-width: 80px;
+      padding-top: 0.35rem;
+      flex-shrink: 0;
+    }
+
+    .filter-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+    }
+
+    .filter-pill {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      padding: 0.3rem 0.9rem;
+      border: 1.5px solid var(--green-dark);
+      border-radius: var(--radius-pill);
+      color: var(--green-dark);
+      background: transparent;
+      cursor: pointer;
+      transition: background 0.18s, color 0.18s;
+      letter-spacing: 0.03em;
+    }
+
+    .filter-pill:hover {
+      background: rgba(27,58,40,0.08);
+    }
+
+    .filter-pill.active {
+      background: var(--green-dark);
+      color: var(--cream);
+    }
+
+    .filter-pill.danger-venomous.active   { background: #5C2020; border-color: #5C2020; color: var(--cream); }
+    .filter-pill.danger-mild.active       { background: #8B6914; border-color: #8B6914; color: var(--cream); }
+    .filter-pill.danger-harmless.active   { background: var(--green-mid); border-color: var(--green-mid); color: var(--cream); }
+
+    .filter-reset {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      color: var(--green-mid);
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      align-self: center;
+      margin-left: auto;
+      flex-shrink: 0;
+      transition: opacity 0.2s;
+    }
+    .filter-reset:hover { opacity: 0.55; }
+
+    /* ── Results bar ── */
+    .results-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1.2rem;
+    }
+
+    .results-count {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--text-dark);
+      opacity: 0.6;
+      letter-spacing: 0.06em;
+    }
+
+    .results-count span {
+      font-weight: 700;
+      color: var(--green-dark);
+      opacity: 1;
+    }
+
+    /* ── Snake Grid ── */
+    .snake-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1rem;
+    }
+
+    .snake-card {
+      border: 2px solid var(--green-dark);
+      border-radius: 6px;
+      overflow: hidden;
+      background: var(--cream);
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .snake-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(27,58,40,0.12);
+    }
+
+    .snake-card-header {
+      background: var(--green-dark);
+      padding: 0.6rem 0.9rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .snake-card-header.viperidae  { background: #5C2020; }
+    .snake-card-header.elapidae   { background: #8B3A1A; }
+    .snake-card-header.boidae     { background: #4A6741; }
+    .snake-card-header.leptotyphlopidae { background: #3A5A4A; }
+
+    .card-number {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      color: rgba(242,237,218,0.6);
+      letter-spacing: 0.1em;
+    }
+
+    .card-danger-badge {
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      padding: 0.15rem 0.55rem;
+      border-radius: var(--radius-pill);
+      border: 1.5px solid rgba(242,237,218,0.5);
+      color: var(--cream);
+      letter-spacing: 0.04em;
+    }
+
+    .card-danger-badge.venomous   { border-color: #FFB3B3; color: #FFB3B3; }
+    .card-danger-badge.mild       { border-color: #FFE0A0; color: #FFE0A0; }
+
+    .snake-card-body {
+      padding: 0.9rem 1rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+
+    .card-name {
+      font-family: var(--font-title);
+      font-size: 1rem;
+      color: var(--green-dark);
+      line-height: 1.2;
+    }
+
+    .card-meta {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--green-mid);
+      opacity: 0.75;
+    }
+
+    .card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.3rem;
+      margin-top: 0.4rem;
+    }
+
+    .card-tag {
+      font-family: var(--font-mono);
+      font-size: 0.67rem;
+      padding: 0.15rem 0.55rem;
+      border: 1px solid var(--green-dark);
+      border-radius: var(--radius-pill);
+      color: var(--green-dark);
+    }
+
+    /* ── Empty state ── */
+    .no-results {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 4rem 2rem;
+      grid-column: 1 / -1;
+    }
+
+    .no-results-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      opacity: 0.4;
+    }
+
+    .no-results h3 {
+      font-family: var(--font-title);
+      font-size: 1.2rem;
+      color: var(--green-dark);
+      margin-bottom: 0.4rem;
+    }
+
+    .no-results p {
+      font-size: 0.84rem;
+      color: var(--text-dark);
+      opacity: 0.6;
+    }
+
+    @media (max-width: 768px) {
+      .filter-group { flex-direction: column; gap: 0.6rem; }
+      .filter-group-label { min-width: unset; }
+      .snake-grid { grid-template-columns: 1fr 1fr; }
+      .filter-reset { margin-left: 0; }
+    }
+
+    @media (max-width: 480px) {
+      .snake-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header" role="banner">
+    <div class="header-left">
+      <h1 class="site-title">SNAKE SYLLABUSSS</h1>
+    </div>
+    <div class="header-right">
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="GD2P2_HoangH_Home.html"       class="nav-link">Home</a>
+        <a href="GD2P2_HoangH_Snakes.html"      class="nav-link">Snakes</a>
+        <a href="GD2P2_HoangH_Filter.html"      class="nav-link active">Filter</a>
+        <a href="GD2P2_HoangH_QuickGuide.html"  class="nav-link">Quick Guide</a>
+        <a href="GD2P2_HoangH_About.html"       class="nav-link">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="filter-main" role="main">
+
+    <div class="filter-header">
+      <h2>Filter Species</h2>
+      <p>56 species &nbsp;·&nbsp; Select filters to narrow the list</p>
+    </div>
+
+    <div class="filter-controls">
+
+      <div class="filter-group">
+        <span class="filter-group-label">Family</span>
+        <div class="filter-pills" id="pills-family">
+          <button class="filter-pill active" data-group="family" data-value="all">All</button>
+          <button class="filter-pill" data-group="family" data-value="Colubridae">Colubridae</button>
+          <button class="filter-pill" data-group="family" data-value="Viperidae">Viperidae</button>
+          <button class="filter-pill" data-group="family" data-value="Elapidae">Elapidae</button>
+          <button class="filter-pill" data-group="family" data-value="Boidae">Boidae</button>
+          <button class="filter-pill" data-group="family" data-value="Leptotyphlopidae">Leptotyphlopidae</button>
+        </div>
+      </div>
+
+      <div class="filter-group">
+        <span class="filter-group-label">Danger</span>
+        <div class="filter-pills" id="pills-danger">
+          <button class="filter-pill active" data-group="danger" data-value="all">All</button>
+          <button class="filter-pill danger-harmless" data-group="danger" data-value="Harmless">Harmless</button>
+          <button class="filter-pill danger-mild"     data-group="danger" data-value="Mildly Venomous">Mildly Venomous</button>
+          <button class="filter-pill danger-venomous" data-group="danger" data-value="Venomous">Venomous</button>
+        </div>
+      </div>
+
+      <div class="filter-group">
+        <span class="filter-group-label">Activity</span>
+        <div class="filter-pills" id="pills-activity">
+          <button class="filter-pill active" data-group="activity" data-value="all">All</button>
+          <button class="filter-pill" data-group="activity" data-value="Diurnal">Diurnal</button>
+          <button class="filter-pill" data-group="activity" data-value="Nocturnal">Nocturnal</button>
+          <button class="filter-pill" data-group="activity" data-value="Crepuscular">Crepuscular</button>
+        </div>
+      </div>
+
+      <button class="filter-reset" id="reset-btn">Reset all filters</button>
+
+    </div>
+
+    <div class="results-bar">
+      <p class="results-count">Showing <span id="count">56</span> species</p>
+    </div>
+
+    <div class="snake-grid" id="snake-grid">
+      <!-- Cards injected by JS -->
+      <div class="no-results" id="no-results">
+        <div class="no-results-icon">🐍</div>
+        <h3>No species match</h3>
+        <p>Try adjusting or resetting your filters.</p>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-copy">
+        <span>© 2025 Snake Syllabusss. All Rights Reserved.</span>
+        <nav class="footer-links" aria-label="Footer links">
+          <a href="#">Privacy</a>
+          <a href="#">Accessibility</a>
+          <a href="#">Terms &amp; Conditions</a>
+        </nav>
+      </div>
+      <div class="footer-credit">
+        <span>Designer: Hani Hoang</span>
+        <span>OCAD University</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="GD2P2_HoangH_Snakes.js"></script>
+  <script>
+    const grid      = document.getElementById('snake-grid');
+    const countEl   = document.getElementById('count');
+    const noResults = document.getElementById('no-results');
+
+    // Active filter state
+    const filters = { family: 'all', danger: 'all', activity: 'all' };
+
+    // Build a card for one snake
+    function buildCard(snake) {
+      const familyClass = snake.family.toLowerCase();
+      const dangerVal   = snake.danger[0] || '';
+      const dangerClass = dangerVal === 'Venomous' ? 'venomous'
+                        : dangerVal === 'Mildly Venomous' ? 'mild' : '';
+
+      const tagHtml = [
+        ...snake.size,
+        ...snake.location.slice(0, 2)
+      ].map(t => `<span class="card-tag">${t}</span>`).join('');
+
+      const card = document.createElement('a');
+      card.className = 'snake-card';
+      card.href = `GD2P2_HoangH_Snakes.html`;
+      card.setAttribute('aria-label', snake.name);
+      card.innerHTML = `
+        <div class="snake-card-header ${familyClass}">
+          <span class="card-number">${snake.id}</span>
+          <span class="card-danger-badge ${dangerClass}">${dangerVal}</span>
+        </div>
+        <div class="snake-card-body">
+          <p class="card-name">${snake.name}</p>
+          <p class="card-meta">${snake.family} &nbsp;·&nbsp; ${snake.group}</p>
+          <div class="card-tags">${tagHtml}</div>
+        </div>`;
+      return card;
+    }
+
+    // Render filtered list
+    function render() {
+      // Remove existing cards (keep no-results div)
+      Array.from(grid.querySelectorAll('.snake-card')).forEach(c => c.remove());
+
+      const filtered = snakes.filter(s => {
+        const okFamily   = filters.family   === 'all' || s.family === filters.family;
+        const okDanger   = filters.danger   === 'all' || s.danger.includes(filters.danger);
+        const okActivity = filters.activity === 'all' || s.active.includes(filters.activity);
+        return okFamily && okDanger && okActivity;
+      });
+
+      countEl.textContent = filtered.length;
+
+      if (filtered.length === 0) {
+        noResults.style.display = 'flex';
+      } else {
+        noResults.style.display = 'none';
+        filtered.forEach(s => grid.insertBefore(buildCard(s), noResults));
+      }
+    }
+
+    // Handle pill clicks
+    document.querySelectorAll('.filter-pill').forEach(pill => {
+      pill.addEventListener('click', () => {
+        const group = pill.dataset.group;
+        const value = pill.dataset.value;
+
+        // Deactivate siblings, activate clicked
+        document.querySelectorAll(`.filter-pill[data-group="${group}"]`)
+          .forEach(p => p.classList.remove('active'));
+        pill.classList.add('active');
+
+        filters[group] = value;
+        render();
+      });
+    });
+
+    // Reset
+    document.getElementById('reset-btn').addEventListener('click', () => {
+      filters.family = filters.danger = filters.activity = 'all';
+      document.querySelectorAll('.filter-pill').forEach(p => {
+        p.classList.toggle('active', p.dataset.value === 'all');
+      });
+      render();
+    });
+
+    // Initial render
+    render();
+  </script>
+
+</body>
+</html>
