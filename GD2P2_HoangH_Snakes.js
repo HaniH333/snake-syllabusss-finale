@@ -575,5 +575,27 @@ snakeList.addEventListener('scroll', updateScrollPip);
 // INIT
 // ============================================================
 buildList();
-loadSnake(0);
+
+(function applyFilters() {
+  const params  = new URLSearchParams(window.location.search);
+  const id      = params.get('id');
+  const family  = params.get('family');
+  const group   = params.get('group');
+
+  if (id) {
+    // Coming from Filter page — jump to exact snake by id
+    const idx = snakes.findIndex(s => s.id === id);
+    loadSnake(idx !== -1 ? idx : 0);
+  } else if (family || group) {
+    // Coming from Home page — jump to first snake in that family/group
+    const idx = snakes.findIndex(s =>
+      (family && s.family.toLowerCase() === family.toLowerCase()) ||
+      (group  && s.group.toLowerCase()  === group.toLowerCase())
+    );
+    loadSnake(idx !== -1 ? idx : 0);
+  } else {
+    loadSnake(0);
+  }
+})();
+
 setTimeout(updateScrollPip, 100);
