@@ -83,7 +83,7 @@ const snakes = [
   },
   {
     id: "011", name: "Western Ribbon Snake",
-    images: ["Assets/Snakes/WesternRibbonSnake_1.jpg","Assets/Snakes/WesternRibbonSnake_2.jpg","Assets/Snakes/WesternRibbonSnake_3.jpg"],
+    images: ["Assets/Snakes/WesternRibbonsnake_1.jpg","Assets/Snakes/WesternRibbonsnake_2.jpg","Assets/Snakes/WesternRibbonsnake_3.jpg"],
     credit: "© iNaturalist contributors", family: "Colubridae", group: "Gartersnakes",
     size: ["20–40 in"], danger: ["Harmless"], active: ["Diurnal"], location: ["Central USA","Mexico"],
     description: "The Western Ribbon Snake (Thamnophis proximus) is a slender, semi-aquatic gartersnake closely related to its eastern counterpart. Found near ponds, marshes and stream edges. Feeds on frogs, small fish and salamanders."
