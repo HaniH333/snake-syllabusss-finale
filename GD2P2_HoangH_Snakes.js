@@ -1,5 +1,5 @@
 /* ============================================================
-   Snake Syllabusss — Main Script
+   Serpent Syllabusss — Main Script
    GD2P2_HoangH_Snakes.js
 ============================================================ */
 
